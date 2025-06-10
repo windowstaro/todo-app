@@ -1,0 +1,11 @@
+
+
+body {
+    background-color: rgb(240, 200, 234);
+}
+
+header {
+    justify-content:centrer;
+    border: 3px solid #cad48e;
+    color: white;
+}
