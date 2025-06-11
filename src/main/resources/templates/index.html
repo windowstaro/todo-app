@@ -26,11 +26,14 @@
 
     <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 
-    <ul>
-        <li th:each="msg : ${messages}">
-            <strong th:text="${msg.name}">名前</strong>: 
-            <span th:text="${msg.text}">本文</span>
-        </li>
-    </ul>
+<ul>
+  <li th:each="message : ${messages}">
+    <span th:text="${message.name}">名前</span> :
+    <span th:text="${message.text}">メッセージ</span>
+    <a th:href="@{'/edit/' + ${message.id}}" class="btn btn-primary" style="margin-left:10px;">編集</a>
+  </li>
+</ul>
+
+<!-- ...existing code... -->
 </body>
 </html>
