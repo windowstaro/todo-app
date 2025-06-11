@@ -39,4 +39,16 @@ public class MessageController {
         model.addAttribute("messages", messages);
         return "index";
     }
+
+    @PostMapping("/delete")
+    public String delete(@RequestParam String name,
+                        @RequestParam String text,
+                        Model model) {
+        service.deleteMessage(name, text);
+
+        List<Message> messages = service.getAllMessages();
+        model.addAttribute("messages", messages);
+        return "index";
+    }
+
 }
