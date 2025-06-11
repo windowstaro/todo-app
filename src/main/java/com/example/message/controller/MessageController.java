@@ -40,7 +40,7 @@ public class MessageController {
         return "index";
     }
 
-    @PostMapping("/delete")
+    @PostMapping("/delete")//削除機能
     public String delete(@RequestParam String name,
                         @RequestParam String text,
                         Model model) {
@@ -50,5 +50,4 @@ public class MessageController {
         model.addAttribute("messages", messages);
         return "index";
     }
-
 }
