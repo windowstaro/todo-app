@@ -19,6 +19,12 @@
         <button type="edit">編集</button>
     </form>
 
+    <form method="post" action="/delete">
+    <input type="text" name="name" placeholder="削除対象の名前">
+    <input type="text" name="text" placeholder="削除対象のメッセージ">
+    <button type="submit">削除</button>
+    </form>
+
     <p th:if="${error}" th:text="${error}" style="color:red;"></p>
 
     <ul>
