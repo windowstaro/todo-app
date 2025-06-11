@@ -57,4 +57,14 @@ public class MessageController {
     return "index";
 }
     
+   @PostMapping("/delete")//削除機能
+    public String delete(@RequestParam String name,
+                        @RequestParam String text,
+                        Model model) {
+        service.deleteMessage(name, text);
+
+        List<Message> messages = service.getAllMessages();
+        model.addAttribute("messages", messages);
+        return "index";
+    }
 }
