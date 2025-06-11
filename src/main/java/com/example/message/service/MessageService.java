@@ -21,49 +21,15 @@ public class MessageService {
     public void addMessage(String name, String text){
         repository.save(new Message(name,text));
     }
+  
+    public void editMessage(String name, String text, Integer id) {
+          Message message = repository.findById(id).orElseThrow(() -> new RuntimeException("Message not found"));
+          message.setName(name);
+          message.setText(text);
+          repository.save(message);
+    }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  public void deleteMessage(String name, String text){
-        List<Message> messages = repository.findAll(); //findAll() で全件取得
-        for (Message message : messages) {
-            if (message.getName().equals(name) && message.getText().equals(text)) {
-                repository.delete(message); //条件一致した Message を1件だけ削除
-                break; // 最初に一致した1件だけ削除
-            }
-        }
-    }  
+    public void deleteMessage(Integer id) {
+        repository.deleteById(id);
+    }
 }
