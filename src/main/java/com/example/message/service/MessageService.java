@@ -29,6 +29,19 @@ public class MessageService {
           repository.save(message);
     }
 
+    public void deleteMessage(String name, String text){
+        List<Message> messages = repository.findAll();
+        for (Message message : messages){
+            if (message.getName().equals(name) && message.getText().equals(text)){
+                repository.delete(message);
+                break;
+       } 
+    }
+
+    
+    
+}
+
     public void deleteMessage(Integer id) {
         repository.deleteById(id);
     }

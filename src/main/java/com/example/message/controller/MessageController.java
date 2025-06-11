@@ -50,5 +50,4 @@ public class MessageController {
         model.addAttribute("messages", messages);
         return "index";
     }
-
 }
